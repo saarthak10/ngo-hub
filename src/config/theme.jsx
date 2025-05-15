@@ -50,7 +50,7 @@ theme = createTheme(theme,{
         cardTitle:{
             fontSize:'1.2rem',
             display:'block',
-            fontWeight: 500
+            fontWeight: 200
         },
         h6:{
             fontSize:'1rem'
@@ -138,6 +138,29 @@ theme = createTheme(theme,{
                 borderWidth: '1px',
                 borderStyle: 'solid',
                 borderColor: '#E4D9D9' 
+              },
+              tertiary: {
+                display:'inline-flex',
+                boxShadow: 'none',
+                textTransform: 'none',
+                fontWeight: 'bold',
+                fontSize: '14px',
+                padding:'15px',
+                lineHeight: 1,
+                minWidth:'30px',
+                borderRadius: '30px',
+                height: '50px',
+                '&:hover': {
+                  boxShadow: 'none'
+                },
+                '&:disabled': {
+                  opacity: 0.5
+                },
+                [theme.breakpoints.down('sm')]: {
+                  height: '48px'
+                },
+                background: theme.palette.primary.main,
+                color: theme.palette.primary.white
               }
             }
           }
