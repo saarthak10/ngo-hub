@@ -1,4 +1,4 @@
-import {capitalize, createTheme} from "@mui/material"
+import {createTheme} from "@mui/material"
 import {grey} from "@mui/material/colors"
 
 
@@ -100,7 +100,16 @@ theme = createTheme(theme,{
             [theme.breakpoints.up('lg')]: {
             fontSize: '50px'
             }
-        }
+        },
+        small:{
+          fontWeight: '400',
+          [theme.breakpoints.up('xs')]: {
+              fontSize: '0.8rem'
+          },
+          [theme.breakpoints.up('sm')]: {
+          fontSize: '1rem'
+          }
+      }
     },
 
     components:{
