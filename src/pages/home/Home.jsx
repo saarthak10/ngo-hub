@@ -161,7 +161,7 @@ const Home = () => {
         
         >
           <Typography variant="labelLarge" color="#fff"> 
-            SORT BY
+            Sort By
           </Typography>
 
            <Typography variant="small" color="#fff"> 
