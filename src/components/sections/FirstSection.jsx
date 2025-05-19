@@ -17,7 +17,7 @@ const FirstSection = () => {
           xs: "column",
           md: "row",
         },
-        px: '40px', 
+        px: '80px', 
       }}
     >
       <Grid
@@ -50,10 +50,10 @@ const FirstSection = () => {
           src={dashboardImage}
           sx={{
             position: "absolute",
-            right: "20%",
+            right: 0,
             bottom: 0,
             width: {
-              xs: "500px",
+              xs: "60%",
               md: "auto",
             },
           }}

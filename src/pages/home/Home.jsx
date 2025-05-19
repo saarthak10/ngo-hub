@@ -2,6 +2,12 @@ import {
   AppBar,
   Box,
   Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Divider,
   Grid,
   IconButton,
   Menu,
@@ -11,14 +17,13 @@ import {
 } from "@mui/material";
 import React from "react";
 import topRightCornerImage from "../../assets/top_right_corner.svg";
-import topLeftCornerImage from "../../assets/top_left_corner.svg";
-import donationImage from "../../assets/donation.svg";
-import projectsImage from "../../assets/projects.svg";
-import eventsImage from "../../assets/events.svg";
-import customImage from "../../assets/custom.svg";
 import NgoHubLogo from "../../assets/NGOHUB.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import FirstSection from "../../components/sections/FirstSection";
+import SecondSection from "../../components/sections/SecondSection";
+import arrowDown from "../../assets/arrowDown.svg"
+import ThirdSection from "../../components/ThirdSection";
+import theme from "../../config/theme";
 
 const Home = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,90 +43,87 @@ const Home = () => {
     { id: 5, title: "Sign up", color: "#fff" },
   ];
 
-  const services = [
-    { id: 1, title: "Donations", src: `${donationImage}` },
-    { id: 2, title: "Projects", src: `${projectsImage}` },
-    { id: 3, title: "Donations", src: `${eventsImage}` },
-    { id: 4, title: "Donations", src: `${customImage}` },
-  ];
+  
+
   return (
     <Grid
       container
       direction={"column"}
       // sx={{backgroundColor: "yellow"}}
-      
     >
-    <Grid sx={{
-        height:'80vh',
-        position: "relative",
-        backgroundImage: `url("${topRightCornerImage}")`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "top right",
-        backgroundSize: {
-          xs: "150px",
-          md: "auto",
-        },
-      }}>
-      <AppBar
-        component={"nav"}
-        color="transparent"
-        sx={{ border: "none", boxShadow: "none" }}
+      <Grid
+        sx={{
+          height: "100vh",
+          position: "relative",
+          backgroundImage: `url("${topRightCornerImage}")`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "top right",
+          backgroundSize: {
+            xs:"300px",
+            md:"400px",
+            lg:"auto"
+          },
+        }}
       >
-        <Toolbar sx={{ justifyContent: "space-between" }}>
-          <Box>
-            <img src={NgoHubLogo} height={"30px"} />
-          </Box>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            {pages.map((item) => (
-              <Button
-                key={item.id}
-                sx={{
-                  color: `${item.color}`,
-                  fontFamily: "DM Sans",
-                  fontWeight: "600",
-                  textTransform: "none",
-                  fontSize: "16px",
-                  marginRight: "30px",
-                }}
-              >
-                {item.title}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton onClick={handleOpenNavMenu}>
-              <MenuIcon sx={{ color: "#fff" }} />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>
-                    {page.title}
-                  </Typography>
-                </MenuItem>
+        <AppBar
+          component={"nav"}
+          color="transparent"
+          sx={{ border: "none", boxShadow: "none" }}
+        >
+          <Toolbar sx={{ justifyContent: "space-between" }}>
+            <Box>
+              <img src={NgoHubLogo} height={"30px"} />
+            </Box>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              {pages.map((item) => (
+                <Button
+                  key={item.id}
+                  sx={{
+                    color: `${item.color}`,
+                    fontFamily: "DM Sans",
+                    fontWeight: "600",
+                    textTransform: "none",
+                    fontSize: "16px",
+                    marginRight: "30px",
+                  }}
+                >
+                  {item.title}
+                </Button>
               ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      
-      <FirstSection />
-    </Grid>  
+            </Box>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+              <IconButton onClick={handleOpenNavMenu}>
+                <MenuIcon sx={{ color: "#fff" }} />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{ display: { xs: "block", md: "none" } }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                    <Typography sx={{ textAlign: "center" }}>
+                      {page.title}
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <FirstSection />
+      </Grid>
 
       <Box
         component={"main"}
@@ -130,73 +132,50 @@ const Home = () => {
           flexDirection: {
             xs: "column",
           },
-          
         }}
       >
-        {/* <Toolbar /> */}
-       
-        <Grid
-          size={{ xs: 12 }}
-          minHeight={"100vh"}
-          sx={{
-            position: "relative",
-            backgroundImage: `url("${topLeftCornerImage}")`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "top left",
-            backgroundSize: {
-              xs: "150px",
-              md: "auto",
-            },
-            textAlign: "center",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "40px",
-            }}
-          >
-            <Typography variant="small" color="#5E6282">
-              CATEGORY
-            </Typography>
-            <Typography variant="labelLarge" color="#000">
-              We Offer Best Services
-            </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                padding: "20px",
-                justifyContent:'space-between'
-              }}
-            >
-              {services.map((option) => (
-                <Box
-                  key={option.id}
-                  sx={{
-                    borderRadius: "20px",
-                    boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.05)", // soft shadow
-                    padding: "32px",
-                    margin: "20px",
-                    background: "#fff",
-                    transition: "transform 0.3s ease",
-                    "&:hover": {
-                      transform: "translateY(-5px)", // optional lift on hover
-                    },
-                  }}
-                >
-                  <img src={option.src} width="100px" />
-
-                  <Typography> {option.title}</Typography>
-                </Box>
-              ))}
-            </Box>
-          </Box>
-        </Grid>
+        <SecondSection />
       </Box>
+      <ThirdSection />
+      <Divider  />
+      <Grid
+        sx={{
+          padding:'80px',
+          paddingTop:'20px'
+        }}
+      >
+        <Typography variant="extraLarge">
+          Most Recommended NGOs  
+        </Typography>
+        <Grid 
+          size={{xs:12, md:6}}
+          sx={{
+            background: `${theme.palette.primary.main}`,
+            padding:'10px',
+            borderRadius:'0px 25px 0px 0px',
+            display:'flex',
+            flexDirection:'row',
+            justifyContent:'space-between',
+            alignItems:'center'
+          }}
+        
+        >
+          <Typography variant="labelLarge" color="#fff"> 
+            SORT BY
+          </Typography>
+
+           <Typography variant="small" color="#fff"> 
+            Recommended
+          </Typography>
+
+           <Button  color="#fff"  > 
+            Name
+          </Button>
+          <Button variant="small" color="#fff" > 
+            Newest
+          </Button>
+        </Grid>
+      </Grid>
     </Grid>
   );
 };
