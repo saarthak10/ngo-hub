@@ -2,11 +2,6 @@ import {
   AppBar,
   Box,
   Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
   Divider,
   Grid,
   IconButton,
@@ -21,9 +16,10 @@ import NgoHubLogo from "../../assets/NGOHUB.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import FirstSection from "../../components/sections/FirstSection";
 import SecondSection from "../../components/sections/SecondSection";
-import arrowDown from "../../assets/arrowDown.svg"
-import ThirdSection from "../../components/ThirdSection";
-import theme from "../../config/theme";
+import ThirdSection from "../../components/sections/ThirdSection";
+import ngoOneImage from "../../assets/medicalNgo.png";
+import fosterNgo from "../../assets/fosterNgo.png";
+import FourthSection from "../../components/sections/FourthSection";
 
 const Home = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -43,34 +39,65 @@ const Home = () => {
     { id: 5, title: "Sign up", color: "#fff" },
   ];
 
-  
+
+
+  const ngoDetailList = [
+    {
+      id: 1,
+      name: "Medical Charity",
+      description:
+        "Our work aims to break the vicious cycle of poverty and social isolation and to restore hope for a better future.",
+      src: `${ngoOneImage}`,
+    },
+    {
+      id: 2,
+      name: "Foster Care",
+      description:
+        "Our work aims to break the vicious cycle of poverty and social isolation and to restore hope for a better future.",
+      src: `${fosterNgo}`,
+    },
+    {
+      id: 3,
+      name: "Health Care",
+      description:
+        "Our work aims to break the vicious cycle of poverty and social isolation and to restore hope for a better future.",
+      src: `${ngoOneImage}`,
+    },
+  ];
 
   return (
     <Grid
       container
       direction={"column"}
-      // sx={{backgroundColor: "yellow"}}
+      // sx={{
+      //   paddingLeft:'80px',
+      //   paddingRight:'80px',
+      // }}
     >
       <Grid
         sx={{
           height: "100vh",
+          maxWidth:'100vw',
           position: "relative",
           backgroundImage: `url("${topRightCornerImage}")`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "top right",
           backgroundSize: {
-            xs:"300px",
-            md:"400px",
-            lg:"auto"
+            xs: "300px",
+            md: "400px",
+            lg: "auto",
           },
         }}
       >
         <AppBar
+          position="static"
           component={"nav"}
           color="transparent"
           sx={{ border: "none", boxShadow: "none" }}
         >
-          <Toolbar sx={{ justifyContent: "space-between" }}>
+          <Toolbar sx={{
+            
+            justifyContent: "space-between"}} >
             <Box>
               <img src={NgoHubLogo} height={"30px"} />
             </Box>
@@ -124,58 +151,10 @@ const Home = () => {
         </AppBar>
         <FirstSection />
       </Grid>
-
-      <Box
-        component={"main"}
-        display="flex"
-        sx={{
-          flexDirection: {
-            xs: "column",
-          },
-        }}
-      >
-        <SecondSection />
-      </Box>
+      <SecondSection />
       <ThirdSection />
-      <Divider  />
-      <Grid
-        sx={{
-          padding:'80px',
-          paddingTop:'20px'
-        }}
-      >
-        <Typography variant="extraLarge">
-          Most Recommended NGOs  
-        </Typography>
-        <Grid 
-          size={{xs:12, md:6}}
-          sx={{
-            background: `${theme.palette.primary.main}`,
-            padding:'10px',
-            borderRadius:'0px 25px 0px 0px',
-            display:'flex',
-            flexDirection:'row',
-            justifyContent:'space-between',
-            alignItems:'center'
-          }}
-        
-        >
-          <Typography variant="labelLarge" color="#fff"> 
-            Sort By
-          </Typography>
-
-           <Typography variant="small" color="#fff"> 
-            Recommended
-          </Typography>
-
-           <Button  color="#fff"  > 
-            Name
-          </Button>
-          <Button variant="small" color="#fff" > 
-            Newest
-          </Button>
-        </Grid>
-      </Grid>
+      <Divider />
+      <FourthSection ngoDetailList={ngoDetailList}/>  
     </Grid>
   );
 };

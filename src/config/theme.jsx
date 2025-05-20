@@ -109,6 +109,15 @@ theme = createTheme(theme,{
           [theme.breakpoints.up('sm')]: {
           fontSize: '1rem'
           }
+      },
+       extraSmall:{
+          fontWeight: '400',
+          [theme.breakpoints.up('xs')]: {
+              fontSize: '10px'
+          },
+          [theme.breakpoints.up('sm')]: {
+          fontSize: '12px'
+          }
       }
     },
 
@@ -169,6 +178,27 @@ theme = createTheme(theme,{
                   height: '48px'
                 },
                 background: theme.palette.primary.main,
+                color: theme.palette.primary.white
+              },
+              menuButton: {
+                display:'inline-flex',
+                boxShadow: 'none',
+                textTransform: 'none',
+                fontSize: '14px',
+                padding:'15px',
+                lineHeight: 1,
+                minWidth:'30px',
+                borderRadius: '30px',
+                height: '50px',
+                '&:hover': {
+                  boxShadow: 'none'
+                },
+                '&:disabled': {
+                  opacity: 0.5
+                },
+                [theme.breakpoints.down('sm')]: {
+                  height: '48px'
+                },
                 color: theme.palette.primary.white
               }
             }

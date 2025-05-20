@@ -1,9 +1,9 @@
 import React from 'react'
-import foodDonationImage from "../assets/donationIcon.svg";
-import childCareImage from "../assets/childCare.svg";
-import foodDonationEuropeImage from "../assets/ngoIcon.svg";
-import ngoItemIcon from "../assets/ngoItemIcon.svg";
-import topLeftCornerImage from "../assets/top_left_corner.svg";
+import foodDonationImage from "../../assets/donationIcon.svg";
+import childCareImage from "../../assets/childCare.svg";
+import foodDonationEuropeImage from "../../assets/ngoIcon.svg";
+import ngoItemIcon from "../../assets/ngoItemIcon.svg";
+import topLeftCornerImage from "../../assets/top_left_corner.svg";
 import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 const ThirdSection = () => {
     const ngoList = [
@@ -67,7 +67,6 @@ const ThirdSection = () => {
               >
                 {ngoList.map((item) => (
                   <Card key={item.id} sx={{ maxWidth: 345,borderRadius:'22px', margin:'20px' }}>
-                    <CardActionArea sx={{padding:0}}>
     
                     <CardMedia component={"img"} image={item.src} sx={{padding:0, borderBottomLeftRadius:'0px', borderBottomRightRadius:0}}  />
                     <Box 
@@ -105,7 +104,6 @@ const ThirdSection = () => {
                     </CardActions>
 
                     </Box>
-                    </CardActionArea>
                   </Card>
                   
                 ))}

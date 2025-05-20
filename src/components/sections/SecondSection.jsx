@@ -15,7 +15,6 @@ const SecondSection = () => {
     ];
     
   return (
-
      
         <Grid
           size={{ xs: 12 }}
@@ -38,7 +37,6 @@ const SecondSection = () => {
               flexDirection: "column",
               justifyContent: "space-between",
               alignItems: "center",
-              padding: "80px",
               paddingTop:"200px"
             }}
           >

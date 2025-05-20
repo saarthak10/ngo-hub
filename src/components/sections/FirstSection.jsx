@@ -9,15 +9,16 @@ const FirstSection = () => {
       mt={4}
       size={{ xs: 12, md: 12, lg:12 }}
       container
-        fixed
-      width={"100%"}
+      // width={"100%"}
+
       height={"100vh"}
       sx={{
         flexDirection: {
           xs: "column",
           md: "row",
+
         },
-        px: '80px', 
+        paddingLeft:'80px'
       }}
     >
       <Grid
